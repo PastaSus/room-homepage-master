@@ -1,0 +1,39 @@
+@use "../abstracts" as abs;
+@use "../base/" as b;
+
+.card {
+  &--creation {
+  }
+  &__figure {
+    // position: relative;
+    // margin: 0 auto;
+  }
+  &__figure::before {
+    // content: "";
+    // position: absolute;
+
+    // background: linear-gradient(to right, rgba(0, 0, 0, 0.5), transparent);
+    // inset: 0;
+    // z-index: 1;
+  }
+  &__picture {
+  }
+  &__img {
+  }
+
+  &__caption {
+    // position: absolute;
+    // color: abs.$white;
+    // text-transform: uppercase;
+
+    // bottom: 15%;
+    // left: 7%;
+    // font-size: b.$font-size-24;
+    // font-family: b.$font-heading;
+
+    // line-height: 1;
+    // font-weight: 300;
+
+    // z-index: 2;
+  }
+}

@@ -1,0 +1,49 @@
+@use "../abstracts" as abs;
+@use "../base/" as b;
+
+.about {
+  @include abs.breakpoint(tablets) {
+    justify-items: center;
+    text-align: center;
+  }
+
+  @include abs.breakpoint(desktops) {
+    grid-template-columns: auto 1fr auto;
+
+    justify-items: start;
+    text-align: start;
+  }
+
+  &__media {
+  }
+  &__img {
+  }
+  &__content {
+    padding: abs.$spacing-48 abs.$spacing-32 abs.$spacing-40;
+    @include abs.breakpoint(desktops) {
+      padding-block-start: abs.$spacing-64;
+      padding-block-end: abs.$spacing-24;
+
+      padding-inline: abs.$spacing-44;
+    }
+  }
+
+  &__text {
+  }
+  &__description {
+  }
+
+  &__title {
+    font-size: b.$font-size-14;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    margin: 0;
+
+    color: abs.$black;
+    @include abs.breakpoint(desktops) {
+      font-size: b.$font-size-16;
+
+      letter-spacing: 7px;
+    }
+  }
+}

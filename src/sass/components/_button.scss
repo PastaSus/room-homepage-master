@@ -1,0 +1,18 @@
+@use "../abstracts" as abs;
+@use "../base/" as b;
+
+.nav__toggle,
+.hero__control {
+  @extend %btn;
+}
+
+.nav__toggle,
+.hero__controls--mobile {
+  @include abs.breakpoint(desktops) {
+    display: none;
+  }
+}
+
+.nav__toggle {
+  z-index: 2;
+}

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/dist/styles.css" type="text/css" />
+    <script src="script.js" defer></script>
+    <title>Frontend Mentor | Room homepage</title>
+  </head>
+  <body>
+    <!-- Header Navigation -->
+
+    <header class="header" role="banner">
+      <nav class="nav container" aria-label="Main menu">
+        <div class="nav__container flex">
+          <button
+            class="nav__toggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="navMenu"
+          >
+            <img src="./images/icon-hamburger.svg" alt="" />
+          </button>
+          <img class="nav__logo" src="./images/logo.svg" alt="" />
+
+          <div class="nav__menu hidden" id="navMenu">
+            <!-- <button class="nav__close" aria-label="Close menu"><img src="" alt=""></button> -->
+            <ul class="nav__list flex" role="menubar">
+              <li class="nav__item">
+                <a href="#" class="nav__link">Home</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Shop</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">About</a>
+              </li>
+              <li class="nav__item">
+                <a href="#" class="nav__link">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="main">
+      <!-- Hero Carousel Section -->
+      <section
+        class="hero grid"
+        role="region"
+        aria-label="Featured content carousel"
+      >
+        <div class="hero__image-container">
+          <div class="hero__pictures flex">
+            <picture class="active">
+              <source
+                srcset="./images/desktop-image-hero-1.jpg"
+                media="(min-width:768px)"
+              />
+              <img
+                src="./images/mobile-image-hero-1.jpg"
+                alt="Modern white chair and table"
+                class="hero__image"
+              />
+            </picture>
+            <picture>
+              <source
+                srcset="./images/desktop-image-hero-2.jpg"
+                media="(min-width:768px)"
+              />
+              <img
+                src="./images/mobile-image-hero-2.jpg"
+                alt="Modern white chair and table"
+                class="hero__image"
+              />
+            </picture>
+            <picture>
+              <source
+                srcset="./images/desktop-image-hero-3.jpg"
+                media="(min-width:768px)"
+              />
+              <img
+                src="./images/mobile-image-hero-3.jpg"
+                alt="Modern white chair and table"
+                class="hero__image"
+              />
+            </picture>
+          </div>
+
+          <!-- Carousel Controls -->
+          <div
+            class="hero__controls hero__controls--mobile flex"
+            aria-label="Slide controls"
+          >
+            <button
+              class="hero__control hero__control--prev"
+              aria-label="Previous slide"
+            >
+              <img
+                src="./images/icon-angle-left.svg"
+                alt=""
+                class="hero__control-icon"
+              />
+            </button>
+            <button
+              class="hero__control hero__control--next"
+              aria-label="Next slide"
+            >
+              <img
+                src="./images/icon-angle-right.svg"
+                alt=""
+                class="hero__control-icon"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="hero__carousel grid"
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Promotional highlights"
+        >
+          <div class="hero__slides" aria-live="polite">
+            <!-- Slide 1 -->
+            <div
+              class="hero__slide hero__slide--active"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="1 of 3"
+            >
+              <h2 class="hero__title">Discover innovative ways to decorate</h2>
+              <p class="hero__description">
+                We provide unmatched quality, comfort, and style for property
+                owners across the country. Our experts combine form and function
+                in bringing your vision to life. Create a room in your own style
+                with our collection and make your property a reflection of you
+                and what you love.
+              </p>
+            </div>
+
+            <!-- Slide 2 -->
+            <div
+              class="hero__slide hidden"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="2 of 3"
+            >
+              <h2 class="hero__title">We are available all across the globe</h2>
+              <p class="hero__description">
+                With stores all over the world, it's easy for you to find
+                furniture for your home or place of business. Locally, we’re in
+                most major cities throughout the country. Find the branch
+                nearest you using our store locator. Any questions? Don't
+                hesitate to contact us today.
+              </p>
+            </div>
+
+            <!-- Slide 3 -->
+            <div
+              class="hero__slide hidden"
+              role="group"
+              aria-roledescription="slide"
+              aria-label="3 of 3"
+            >
+              <h2 class="hero__title">Manufactured with the best materials</h2>
+              <p class="hero__description">
+                Our modern furniture store provides a high level of quality. Our
+                company has invested in advanced technology to ensure that every
+                product is made as perfect and as consistent as possible. With
+                three decades of experience in this industry, we understand what
+                customers want for their home and office.
+              </p>
+            </div>
+          </div>
+
+          <!-- Single CTA Button (not part of slides) -->
+          <a href="#" class="hero__cta flex" role="button">
+            <span>Shop now</span>
+            <img src="./images/icon-arrow.svg" alt="" />
+          </a>
+
+          <!-- Carousel Controls -->
+          <div
+            class="hero__controls hero__controls--desktop hidden"
+            aria-label="Slide controls"
+            hidden
+          >
+            <button
+              class="hero__control hero__control--prev"
+              aria-label="Previous slide"
+            >
+              <img
+                src="./images/icon-angle-left.svg"
+                alt=""
+                class="hero__control-icon"
+              />
+            </button>
+            <button
+              class="hero__control hero__control--next"
+              aria-label="Next slide"
+            >
+              <img
+                src="./images/icon-angle-right.svg"
+                alt=""
+                class="hero__control-icon"
+              />
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Furniture Section -->
+      <section
+        class="about grid"
+        role="region"
+        aria-label="About our furniture"
+      >
+        <div class="about__image-container">
+          <img
+            src="./images/image-about-dark.jpg"
+            alt="Black modern chairs in a cozy room"
+            class="about__image"
+          />
+        </div>
+        <div class="about__content">
+          <h2 class="about__title">About our furniture</h2>
+          <p class="about__description">
+            Our multifunctional collection blends design and function to suit
+            your individual taste. Make each room unique, or pick a cohesive
+            theme that best expresses your interests and what inspires you. Find
+            the furniture pieces you need, from traditional to contemporary
+            styles or anything in between. Product specialists are available to
+            help you create your dream space.
+          </p>
+        </div>
+        <div class="about__image-container">
+          <img
+            src="./images/image-about-light.jpg"
+            alt="Sleek white chair in a white room"
+            class="about__image"
+          />
+        </div>
+      </section>
+    </main>
+    <div class="overlay hidden"></div>
+  </body>
+</html>

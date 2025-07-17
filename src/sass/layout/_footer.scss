@@ -1,0 +1,71 @@
+@use "../abstracts" as abs;
+@use "../base/" as b;
+
+.footer {
+  // background-color: abs.$black;
+  // justify-content: center;
+
+  // margin-block-start: abs.$spacing-48;
+  // padding: abs.$spacing-48 0;
+
+  &__inner {
+  }
+  &__logo-nav {
+    // justify-items: center;
+  }
+  &__brand {
+  }
+  &__logo {
+  }
+  &__logo-img {
+    // max-width: 150px;
+  }
+
+  &__social-copyright {
+  }
+
+  &__copyright {
+    // color: abs.$grey-200;
+  }
+}
+
+.nav {
+  &--footer {
+  }
+  &__list--footer {
+    // list-style-type: none;
+    // padding: 0;
+    // margin: 0;
+    // flex-direction: column;
+
+    // gap: abs.$spacing-16;
+
+    // text-align: center;
+    // margin-block: abs.$spacing-40;
+  }
+  &__item--footer {
+  }
+  &__link--footer {
+    // text-decoration: none;
+    // color: abs.$white;
+  }
+}
+
+.social {
+  &--footer {
+    // align-items: center;
+    // justify-content: center;
+
+    // gap: abs.$spacing-16;
+
+    // list-style-type: none;
+    // padding: 0;
+    // margin: 0;
+  }
+  &__item {
+  }
+  &__link {
+  }
+  &__icon {
+  }
+}
