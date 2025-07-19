@@ -26,7 +26,7 @@
   <body>
     <!-- Header Navigation -->
 
-    <header class="header" role="banner">
+    <header class="header">
       <nav class="nav container" aria-label="Main menu">
         <div class="nav__container flex">
           <button
@@ -34,6 +34,7 @@
             aria-label="Open menu"
             aria-expanded="false"
             aria-controls="navMenu"
+            type="button"
           >
             <img src="./images/icon-hamburger.svg" alt="" />
           </button>
@@ -105,10 +106,7 @@
           </div>
 
           <!-- Carousel Controls -->
-          <div
-            class="hero__controls hero__controls--mobile flex"
-            aria-label="Slide controls"
-          >
+          <div class="hero__controls hero__controls--mobile flex">
             <button
               class="hero__control hero__control--prev"
               aria-label="Previous slide"
@@ -192,7 +190,7 @@
           </div>
 
           <!-- Single CTA Button (not part of slides) -->
-          <a href="#" class="hero__cta flex" role="button">
+          <a href="#" class="hero__cta flex">
             <span>Shop now</span>
             <svg
               width="40"
@@ -210,10 +208,7 @@
           </a>
 
           <!-- Carousel Controls -->
-          <div
-            class="hero__controls hero__controls--desktop"
-            aria-label="Slide controls"
-          >
+          <div class="hero__controls hero__controls--desktop">
             <button
               class="hero__control hero__control--prev"
               aria-label="Previous slide"
