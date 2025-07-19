@@ -73,8 +73,8 @@
     @include abs.breakpoint(desktops) {
       pointer-events: auto;
       color: abs.$white;
-    }
 
-    @include abs.underline-hover($hover-scale: 0.5);
+      @include abs.underline-hover($hover-scale: 0.5);
+    }
   }
 }
