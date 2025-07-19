@@ -3,22 +3,33 @@
 
 .hero {
   @include abs.breakpoint(desktops) {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 600px;
   }
 
   &__image-container {
     position: relative;
+    height: 52vh;
+    @include abs.breakpoint(desktops) {
+      height: 100%;
+    }
   }
 
   &__image {
+    min-width: 375px;
+    height: 100%;
+    width: 100%;
+
+    object-fit: fill;
   }
 
   &__pictures {
     display: flex;
-    height: 100%; // or a fixed height if preferred
+    height: 100%;
+    // max-width: 375px;
+    // or a fixed height if preferred
 
     position: relative;
-    overflow: hidden;
+    // overflow: hidden;
   }
 
   &__pictures picture {
@@ -28,17 +39,15 @@
     width: 100%;
     height: 100%;
     opacity: 0;
+
+    z-index: 0;
     pointer-events: none;
-
-    transition: transform 0.6s ease, opacity 0.6s ease;
-
-    will-change: transform, opacity;
+    transition: opacity 0.3s ease;
   }
 
   &__pictures picture.active {
     opacity: 1;
     pointer-events: auto;
-    position: relative;
 
     z-index: 1;
   }
@@ -87,6 +96,7 @@
   }
 
   &__controls--desktop {
+    display: none;
     @include abs.breakpoint(desktops) {
       display: flex;
       position: absolute;
@@ -106,7 +116,8 @@
       text-align: start;
       justify-items: start;
 
-      padding-block: abs.$spacing-128;
+      padding-block-start: abs.$spacing-96;
+      padding-block-end: abs.$spacing-128;
       padding-inline: abs.$spacing-96;
     }
   }
@@ -114,19 +125,36 @@
   &__slides {
     position: relative;
     overflow: hidden;
+
+    height: 239px;
+
+    @include abs.breakpoint(tablets) {
+      max-height: 130px;
+    }
+    @include abs.breakpoint(desktops) {
+      max-height: 100%;
+    }
   }
   &__slide {
     position: absolute;
-    opacity: 0;
-    visibility: hidden;
+    width: 100%;
+    inset: 0;
 
-    will-change: transform, opacity;
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease;
+
+    @include abs.breakpoint(tablets) {
+      position: relative;
+    }
   }
   &__slide--active {
     opacity: 1;
-    visibility: visible;
+    // visibility: visible;
     z-index: 1;
-    position: relative;
+    pointer-events: auto;
+    // position: relative;
   }
 
   &__title {
@@ -154,7 +182,7 @@
     gap: abs.$spacing-16;
     margin-block-start: abs.$spacing-36;
     @include abs.breakpoint(desktops) {
-      margin-block-start: 0;
+      margin-block-start: abs.$spacing-8;
     }
   }
 }

@@ -13,6 +13,23 @@
   }
 }
 
+.hero__controls--desktop {
+}
+
 .nav__toggle {
   z-index: 2;
+}
+
+.hero__control:hover,
+.hero__control:active {
+  background-color: abs.$Grey-800;
+}
+
+.hero__cta:hover {
+  color: abs.$Grey-500;
+}
+
+.hero__cta:hover path,
+.hero__cta:active path {
+  fill: #a1a1a1;
 }

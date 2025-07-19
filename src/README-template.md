@@ -1,13 +1,15 @@
 # Frontend Mentor - Room homepage solution
 
-This is a solution to the [Room homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Room homepage challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/room-homepage-BtdBY_ENq). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
 - [Overview](#overview)
+
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+
   - [Links](#links)
+
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
@@ -15,8 +17,6 @@ This is a solution to the [Room homepage challenge on Frontend Mentor](https://w
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
-
-**Note: Delete this note and update the table of contents based on what sections you keep.**
 
 ## Overview
 
@@ -27,18 +27,6 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 - Navigate the slider using either their mouse/trackpad or keyboard
-
-### Screenshot
-
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
-
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
 
 ### Links
 
@@ -54,59 +42,116 @@ Then crop/optimize/edit your image however you like, add it to your project, and
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- SCSS
+- Vanilla JS
+- Vercel
+- npm
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
-
-To see how you can add code snippets, see below:
+I really liked the idea of having some elements rendered in the DOM just to have some clean animations which is what i did in this challenge
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
+<div class="hero__slides flex" aria-live="polite">
+  <!-- Slide 1 -->
+  <div
+    class="hero__slide hero__slide--active"
+    role="group"
+    aria-roledescription="slide"
+    aria-label="1 of 3"
+  >
+    <h2 class="hero__title">Discover innovative ways to decorate</h2>
+    <p class="hero__description">
+      We provide unmatched quality, comfort, and style for property owners
+      across the country. Our experts combine form and function in bringing your
+      vision to life. Create a room in your own style with our collection and
+      make your property a reflection of you and what you love.
+    </p>
+  </div>
+
+  <!-- Slide 2 -->
+  <div
+    class="hero__slide hidden"
+    role="group"
+    aria-roledescription="slide"
+    aria-label="2 of 3"
+  >
+    <h2 class="hero__title">We are available all across the globe</h2>
+    <p class="hero__description">
+      With stores all over the world, it's easy for you to find furniture for
+      your home or place of business. Locally, we’re in most major cities
+      throughout the country. Find the branch nearest you using our store
+      locator. Any questions? Don't hesitate to contact us today.
+    </p>
+  </div>
+
+  <!-- Slide 3 -->
+  <div
+    class="hero__slide hidden"
+    role="group"
+    aria-roledescription="slide"
+    aria-label="3 of 3"
+  >
+    <h2 class="hero__title">Manufactured with the best materials</h2>
+    <p class="hero__description">
+      Our modern furniture store provides a high level of quality. Our company
+      has invested in advanced technology to ensure that every product is made
+      as perfect and as consistent as possible. With three decades of experience
+      in this industry, we understand what customers want for their home and
+      office.
+    </p>
+  </div>
+</div>
 ```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+
+```scss
+&__pictures picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 ```
+
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function switchSlide(fromIndex, toIndex, direction) {
+  const fromPic = pictures[fromIndex];
+  const toPic = pictures[toIndex];
+  const fromSlide = slides[fromIndex];
+  const toSlide = slides[toIndex];
+
+  // Remove active states
+  fromPic.classList.remove("active");
+  fromSlide.classList.remove("hero__slide--active");
+  fromSlide.classList.add("hidden");
+
+  // Add active states
+  toPic.classList.add("active");
+  toSlide.classList.remove("hidden");
+  toSlide.classList.add("hero__slide--active");
 }
 ```
-
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
 
 ### Continued development
 
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+I want to do complex animations in the future
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Front-end mentor as resource in general](https://www.frontendmentor.io/learning-paths/advanced-css-techniques-vdOtKjIC4V) - the articles on front-endmentor.io in the learning paths under advanced css section are just what i used
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
+- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/PastaSus)
 
 ## Acknowledgments
 
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+Go checkout Web Dev Simpliefied on youtube he makes simple tutorials about carousels

@@ -48,69 +48,54 @@ document.addEventListener("DOMContentLoaded", () => {
   //  5) The next text slide in.
 
   // 🧹 Utility to remove animation classes
-  function cleanupAnimations(...elements) {
-    const classes = [
-      "slide-in-left",
-      "slide-in-right",
-      "slide-out-left",
-      "slide-out-right",
-    ];
+  // function cleanupAnimations(...elements) {
+  //   const classes = [
+  //     "slide-in-left",
+  //     "slide-in-right",
+  //     "slide-out-left",
+  //     "slide-out-right",
+  //   ];
 
-    elements.forEach((el) => {
-      classes.forEach((cls) => el.classList.remove(cls));
-    });
-  }
+  //   elements.forEach((el) => {
+  //     classes.forEach((cls) => el.classList.remove(cls));
+  //   });
+  // }
 
+  /* ✅ TL;DR Fixes to Try:
+     1.Move .hidden class toggle to animationend, not animationstart.
+
+     2.Avoid display: none transitions — use opacity instead to prevent reflows/layout shifts.
+
+     3.Make sure only one slide has position: relative and z-index: 1 at a time.
+
+     4.Use pointer-events: none during animations to prevent user interaction flickering.
+     */
   function switchSlide(fromIndex, toIndex, direction) {
     const fromPic = pictures[fromIndex];
     const toPic = pictures[toIndex];
     const fromSlide = slides[fromIndex];
     const toSlide = slides[toIndex];
 
-    const outAnim = direction === "next" ? "slide-out-left" : "slide-out-right";
-    const inAnim = direction === "next" ? "slide-in-left" : "slide-in-right";
+    // Remove active states
+    fromPic.classList.remove("active");
+    fromSlide.classList.remove("hero__slide--active");
+    fromSlide.classList.add("hidden");
 
-    // 1. Clean previous leftover animations
-    cleanupAnimations(fromPic, toPic, fromSlide, toSlide);
-
-    // 2. Prepare incoming slide
+    // Add active states
     toPic.classList.add("active");
     toSlide.classList.remove("hidden");
     toSlide.classList.add("hero__slide--active");
-
-    // 3. Animate out old content
-    fromPic.classList.add(outAnim);
-    fromSlide.classList.add(outAnim);
-
-    // 4. Animate in new content
-    toPic.classList.add(inAnim);
-    toSlide.classList.add(inAnim);
-
-    // 5. Wait for animation to finish, then clean
-    toSlide.addEventListener(
-      "animationstart",
-      () => {
-        // Hide old slide
-        fromPic.classList.remove("active");
-        fromSlide.classList.add("hidden");
-        fromSlide.classList.remove("hero__slide--active");
-
-        // Clean animation classes
-        cleanupAnimations(fromPic, toPic, fromSlide, toSlide);
-      },
-      { once: true }
-    );
   }
 
   function prevImg() {
     const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-    switchSlide(currentIndex, prevIndex, "prev");
+    switchSlide(currentIndex, prevIndex);
     currentIndex = prevIndex;
   }
 
   function nextImg() {
     const nextIndex = (currentIndex + 1) % slides.length;
-    switchSlide(currentIndex, nextIndex, "next");
+    switchSlide(currentIndex, nextIndex);
     currentIndex = nextIndex;
   }
 

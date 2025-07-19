@@ -29,6 +29,8 @@
       min-width: 704px;
     }
     @include abs.breakpoint(desktops) {
+      min-width: 367px;
+
       gap: abs.$spacing-48;
     }
   }
@@ -43,6 +45,11 @@
 
     @include abs.breakpoint(desktops) {
       display: block;
+    }
+  }
+  &__menu.hidden {
+    @include abs.breakpoint(desktops) {
+      visibility: visible;
     }
   }
 
@@ -64,7 +71,10 @@
 
     font-weight: 600;
     @include abs.breakpoint(desktops) {
+      pointer-events: auto;
       color: abs.$white;
     }
+
+    @include abs.underline-hover($hover-scale: 0.5);
   }
 }
