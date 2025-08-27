@@ -26,9 +26,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navMenu.classList.contains("hidden")) {
       hamburger.src = "./images/icon-close.svg";
       header.style.zIndex = "3";
+      navBtn.setAttribute("aria-expanded", "true");
     } else {
       hamburger.src = "./images/icon-hamburger.svg";
       header.style.zIndex = "auto";
+      navBtn.setAttribute("aria-expanded", "false");
     }
 
     overlay.classList.toggle("hidden");
@@ -45,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  function switchSlide(fromIndex, toIndex, direction) {
+  function switchSlide(fromIndex, toIndex) {
     const fromPic = pictures[fromIndex];
     const toPic = pictures[toIndex];
     const fromSlide = slides[fromIndex];
