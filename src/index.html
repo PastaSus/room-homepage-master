@@ -110,6 +110,7 @@
               type="button"
               class="hero__control hero__control--prev"
               aria-label="Previous slide"
+              aria-controls="slides"
             >
               <img
                 src="./images/icon-angle-left.svg"
@@ -121,6 +122,7 @@
               type="button"
               class="hero__control hero__control--next"
               aria-label="Next slide"
+              aria-controls="slides"
             >
               <img
                 src="./images/icon-angle-right.svg"
@@ -137,7 +139,7 @@
           aria-roledescription="carousel"
           aria-label="Promotional highlights"
         >
-          <div class="hero__slides flex" aria-live="polite">
+          <div class="hero__slides flex" aria-live="polite" id="slides">
             <!-- Slide 1 -->
             <div
               class="hero__slide hero__slide--active"
@@ -217,6 +219,7 @@
             <button
               class="hero__control hero__control--prev"
               aria-label="Previous slide"
+              aria-controls="slides"
               type="button"
             >
               <img
@@ -228,6 +231,7 @@
             <button
               class="hero__control hero__control--next"
               aria-label="Next slide"
+              aria-controls="slides"
               type="button"
             >
               <img

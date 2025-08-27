@@ -1,9 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".header");
 
+  const nav = document.querySelector(".nav");
   const navMenu = document.querySelector(".nav__menu");
   const navBtn = document.querySelector(".nav__toggle");
-  const navList = document.querySelector(".nav__list");
 
   const body = document.querySelector("body");
   const overlay = document.querySelector(".overlay");
@@ -15,61 +15,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentIndex = 0;
 
+  let removeTrapFocus;
+
   navBtn.addEventListener("click", openCloseMenu);
 
-  //  on header: z-index: 1;
-
   function openCloseMenu() {
-    const navIcon = navBtn.querySelector("img");
+    const hamburger = navBtn.querySelector("img");
+    const isClose = hamburger.src.includes("icon-hamburger.svg");
 
     if (navMenu.classList.contains("hidden")) {
-      navIcon.src = "./images/icon-close.svg";
+      hamburger.src = "./images/icon-close.svg";
       header.style.zIndex = "3";
     } else {
-      navIcon.src = "./images/icon-hamburger.svg";
+      hamburger.src = "./images/icon-hamburger.svg";
       header.style.zIndex = "auto";
     }
 
     overlay.classList.toggle("hidden");
     body.classList.toggle("no-scroll");
     navMenu.classList.toggle("hidden");
+
+    if (isClose) {
+      removeTrapFocus = trapFocus(nav);
+    } else {
+      if (removeTrapFocus) {
+        removeTrapFocus();
+        removeTrapFocus = null;
+      }
+    }
   }
 
-  // ✅ Goal
-
-  //  1) On click of Prev/Next buttons, animate:
-
-  //  2) The current image (picture) out.
-
-  //  3) The next image in.
-
-  //  4) The current text slide out.
-
-  //  5) The next text slide in.
-
-  // 🧹 Utility to remove animation classes
-  // function cleanupAnimations(...elements) {
-  //   const classes = [
-  //     "slide-in-left",
-  //     "slide-in-right",
-  //     "slide-out-left",
-  //     "slide-out-right",
-  //   ];
-
-  //   elements.forEach((el) => {
-  //     classes.forEach((cls) => el.classList.remove(cls));
-  //   });
-  // }
-
-  /* ✅ TL;DR Fixes to Try:
-     1.Move .hidden class toggle to animationend, not animationstart.
-
-     2.Avoid display: none transitions — use opacity instead to prevent reflows/layout shifts.
-
-     3.Make sure only one slide has position: relative and z-index: 1 at a time.
-
-     4.Use pointer-events: none during animations to prevent user interaction flickering.
-     */
   function switchSlide(fromIndex, toIndex, direction) {
     const fromPic = pictures[fromIndex];
     const toPic = pictures[toIndex];
@@ -97,6 +72,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextIndex = (currentIndex + 1) % slides.length;
     switchSlide(currentIndex, nextIndex);
     currentIndex = nextIndex;
+  }
+
+  // trap focus for our nav
+  function trapFocus(container) {
+    const navFocusables = container.querySelectorAll(
+      ".nav__toggle, .nav__link"
+    );
+
+    const firstEl = navFocusables[0];
+    const lastEl = navFocusables[navFocusables.length - 1];
+
+    function handleNavTrap(e) {
+      const isMobile = window.innerWidth < 1440;
+
+      if (e.key !== "Tab") return;
+
+      // check width at the moment of keydown
+      if (!isMobile) return;
+
+      // e.shiftKey - shift + tab condition
+      if (e.shiftKey) {
+        if (document.activeElement === firstEl) {
+          e.preventDefault();
+          lastEl.focus();
+        }
+      } else {
+        if (document.activeElement === lastEl) {
+          e.preventDefault();
+          firstEl.focus();
+        }
+      }
+    }
+
+    container.addEventListener("keydown", handleNavTrap);
+
+    return () => container.removeEventListener("keydown", handleNavTrap);
   }
 
   // 🔘 Attach listeners
