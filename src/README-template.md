@@ -48,8 +48,7 @@ Users should be able to:
 - NPM
 - Accessibility
 - Performance
-
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+- NVDA (screen reader tested)
 
 ### What I learned
 
