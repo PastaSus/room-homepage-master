@@ -47,6 +47,7 @@ Users should be able to:
 - Vercel
 - NPM
 - Accessibility
+- Performance
 
 **Note: These are just examples. Delete this note and replace the list above with your own choices**
 

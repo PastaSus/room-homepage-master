@@ -16,8 +16,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap"
+      />
+    </noscript>
 
     <link rel="stylesheet" href="/dist/styles.css" type="text/css" />
     <script src="script.js" defer></script>
