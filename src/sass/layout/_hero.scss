@@ -27,11 +27,8 @@
   &__pictures {
     display: flex;
     height: 100%;
-    // max-width: 375px;
-    // or a fixed height if preferred
 
     position: relative;
-    // overflow: hidden;
   }
 
   &__pictures picture {
@@ -126,9 +123,6 @@
 
   &__slides {
     position: relative;
-    overflow: hidden;
-
-    min-height: 239px;
 
     @include abs.breakpoint(tablets) {
       max-height: 130px;
@@ -138,12 +132,10 @@
     }
   }
   &__slide {
-    position: absolute;
     width: 100%;
-    inset: 0;
 
     opacity: 0;
-    z-index: 0;
+
     pointer-events: none;
     transition: opacity 0.6s ease;
 
@@ -153,14 +145,12 @@
   }
   &__slide--active {
     opacity: 1;
-    // visibility: visible;
+
     z-index: 1;
     pointer-events: auto;
-    // position: relative;
   }
 
   &__title {
-    // max-width: 330px;
     margin: 0;
     color: abs.$black;
 
@@ -184,7 +174,7 @@
     gap: abs.$spacing-16;
     margin-block-start: abs.$spacing-36;
     @include abs.breakpoint(desktops) {
-      margin-block-start: abs.$spacing-8;
+      margin-block-start: abs.$spacing-16;
     }
   }
 }

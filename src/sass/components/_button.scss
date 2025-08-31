@@ -21,7 +21,7 @@
 }
 
 .hero__control:hover,
-.hero__control:active {
+.hero__control:focus {
   background-color: abs.$Grey-800;
 }
 
@@ -30,6 +30,6 @@
 }
 
 .hero__cta:hover path,
-.hero__cta:active path {
+.hero__cta:focus path {
   fill: #a1a1a1;
 }
