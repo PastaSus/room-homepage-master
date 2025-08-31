@@ -49,6 +49,7 @@ Users should be able to:
 - Accessibility
 - Performance
 - NVDA (screen reader tested)
+- TalkBack (android screen reader tested)
 
 ### What I learned
 
