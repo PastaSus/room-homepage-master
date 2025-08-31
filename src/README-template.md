@@ -155,4 +155,4 @@ I want to do complex animations in the future
 
 ## Acknowledgments
 
-Go checkout Web Dev Simpliefied on youtube he makes simple tutorials about carousels
+Go checkout Web Dev Simplified on youtube he makes simple tutorials about carousels

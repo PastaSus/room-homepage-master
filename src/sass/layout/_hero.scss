@@ -128,7 +128,7 @@
     position: relative;
     overflow: hidden;
 
-    height: 239px;
+    min-height: 239px;
 
     @include abs.breakpoint(tablets) {
       max-height: 130px;
